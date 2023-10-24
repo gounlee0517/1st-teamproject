@@ -2,6 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   text-align: center;
+  background-color: black;
 }
 
 p {
@@ -36,16 +37,20 @@ a {
 .movie-detail {
   width: 70%;
   margin: 0 auto 0 auto;
-  border : 1px solid black;
+  border : 1px solid #FFCA3D;
 }
 
-.movie-detail-container {
-  width: 60%;
+.container {
+  color: white;
+  padding: 50px;
+  display: flex;
 }
 
-.movie-detail-container > img {
+.container > img {
   width: 400px;
   height: 500px;
 }
 
-
+.text-item {
+  margin: 0 auto 0 auto;
+}

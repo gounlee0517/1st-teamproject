@@ -149,7 +149,7 @@ function captureInput() {
           poster.alt = movie.title;
           title.textContent = movie.title;
 
-          item.appendChild(link);
+          item.appendChild(link); 
           item.appendChild(title);
           item.appendChild(text)
           link.appendChild(poster);
