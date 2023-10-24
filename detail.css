@@ -1,6 +1,60 @@
-/* 상세 페이지에 들어갈 내용에 대한 api가 따로 있음
-영화 아이디를 주소 뒤에 붙이면 해당 영화로 넘어감
-"javascript url id" 
-"fetch (상세정보 주소)"
-"a 태그를 이용해서 페이지 이동 ./detail.html?id=1234"*/
+html, body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+p {
+  font-size: 16px;
+  font-family: 'avenir';
+}
+
+a {
+  text-decoration: none;
+  color: #FFCA3D;
+  font-size: 18px;
+  font-family: 'avenir';
+}
+
+.navbar-list {
+  position: sticky;
+  top: 0;
+  display: inline-block;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+}
+
+.navbar-menu li {
+  padding-right: 20px;
+}
+
+.movie-detail {
+  width: 70%;
+  margin: 0 auto 0 auto;
+  border : 1px solid black;
+}
+
+.container {
+  display: grid;
+  background-color: aqua;
+
+  grid-template-columns: 200px 200px;
+  grid-template-rows: 250px 250px;
+  grid-column-gap: 50px;
+  grid-row-gap: 50px;
+}
+
+.item > img {
+  width: 400px;
+  height: 500px;
+}
+
+.item:nth-child(1) {
+  grid-column-start: 1;
+}
 
