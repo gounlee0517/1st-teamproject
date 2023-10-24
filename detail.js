@@ -1,3 +1,11 @@
+// 현재 페이지 URL 가져오기
+const url = window.location.href;
+console.log(url);
+console.log(typeof url);
+
+const movieId = url.split("id=")[1];
+console.log(movieId);
+
 const options = {
   method: "GET",
   headers: {
@@ -7,7 +15,7 @@ const options = {
   },
 };
 
-fetch(`https://api.themoviedb.org/3/movie/${movie.id}?language=en-U`, options)
+fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options)
   .then((response) => response.json())
 
   .then((data) => {
@@ -27,11 +35,12 @@ fetch(`https://api.themoviedb.org/3/movie/${movie.id}?language=en-U`, options)
     title.innerHTML = titles;
     star.innerHTML = stars;
     text.innerHTML = overviews;
-
+    
+    div.appendChild(img);
     div.appendChild(title);
     div.appendChild(star);
     div.appendChild(text);
-    div.appendChild(img);
+    
 
     const container = document.getElementsByClassName("container")[0];
     container.appendChild(div);
