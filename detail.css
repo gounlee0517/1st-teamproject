@@ -39,22 +39,13 @@ a {
   border : 1px solid black;
 }
 
-.container {
-  display: grid;
-  background-color: aqua;
-
-  grid-template-columns: 200px 200px;
-  grid-template-rows: 250px 250px;
-  grid-column-gap: 50px;
-  grid-row-gap: 50px;
+.movie-detail-container {
+  width: 60%;
 }
 
-.item > img {
+.movie-detail-container > img {
   width: 400px;
   height: 500px;
 }
 
-.item:nth-child(1) {
-  grid-column-start: 1;
-}
 
