@@ -21,13 +21,11 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
     results.forEach(movie => {
       const item = document.createElement("div");
       const title = document.createElement('h4');
-      const text = document.createElement('p');
       const poster = document.createElement('img');
       const link = document.createElement('a')
 
       item.appendChild(link)
       item.appendChild(title)
-      item.appendChild(text)
       link.appendChild(poster)
 
       poster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
@@ -42,10 +40,6 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
 
       //이미지 링크
       link.href = `detail.html?id=${movie.id}` 
-      text.innerHTML = movie.id;
-      poster.appendChild(text);
-   
-
 
       //card border 스타일 주기 
       item.addEventListener("mouseover", (event) => {
@@ -53,39 +47,12 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
         event.target.style.transition = 'all 0.4s ease-in-out';
         
         title.style.border = 'none';
-        text.style.border = 'none';
         poster.style.border = 'none';
       }, false);
 
       item.addEventListener("mouseout", (event) => {
         event.target.style.border = 'none';
       }, false);
-    });
-
-    //영화 검색 기능
-    const searchInput = document.getElementById('search');
-    const searchBtn = document.getElementById('searchBtn');
-
-    searchInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        searchBtn.click();
-      }
-    });
-
-    searchBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const val = searchInput.value.toLowerCase();
-      const movieCards = document.querySelectorAll('.card');
-
-      movieCards.forEach(card => {
-        const title = card.querySelector('.title').textContent.toLowerCase(); // 카드 안의 타이틀 요소 가져오기
-        if (title.includes(val)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
     });
   })
 
@@ -113,18 +80,26 @@ document.querySelector('.footer-main').addEventListener('click', function () {
 const searchInput = document.getElementById('search');
 const searchBtn = document.getElementById('searchBtn');
 
-function clearListResults() {
-  const listResults = document.querySelector(".container");
-  while (listResults.firstChild) {
-    listResults.removeChild(listResults.firstChild);
+function clearListResults(userInput) {
+  console.log(userInput);
+  if (userInput == "") {
+    console.log('검색값 없음');
+  } else {
+    const listResults = document.querySelector(".container");
+    while (listResults.firstChild) {
+      listResults.removeChild(listResults.firstChild);
+    }
   }
+
+
 }
 
 function captureInput() {
   userInput = searchInput.value;
+
   const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=0350783f5567adba763f73f89851b1f5&query=${userInput}`;
   const listResults = document.querySelector(".container"); // 선택한 목록 요소
-  clearListResults();
+  clearListResults(userInput);
 
   // Make an API request
   fetch(searchUrl)
@@ -141,7 +116,6 @@ function captureInput() {
           // 각 영화에 대한 html li 요소 생성하기
           const item = document.createElement("div");
           const title = document.createElement('h4');
-          const text = document.createElement('p');
           const poster = document.createElement("img");
           const link = document.createElement('a')
 
@@ -151,15 +125,11 @@ function captureInput() {
 
           item.appendChild(link); 
           item.appendChild(title);
-          item.appendChild(text)
           link.appendChild(poster);
 
           //이미지 링크
           link.href = `detail.html?id=${movie.id}` 
-          text.innerHTML = movie.id;
-          poster.appendChild(text);
           
-
           listResults.appendChild(item); // li 요소를 목록에 추가
         });
       } else {
