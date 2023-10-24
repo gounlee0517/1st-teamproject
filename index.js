@@ -80,18 +80,26 @@ document.querySelector('.footer-main').addEventListener('click', function () {
 const searchInput = document.getElementById('search');
 const searchBtn = document.getElementById('searchBtn');
 
-function clearListResults() {
-  const listResults = document.querySelector(".container");
-  while (listResults.firstChild) {
-    listResults.removeChild(listResults.firstChild);
+function clearListResults(userInput) {
+  console.log(userInput);
+  if (userInput == "") {
+    console.log('검색값 없음');
+  } else {
+    const listResults = document.querySelector(".container");
+    while (listResults.firstChild) {
+      listResults.removeChild(listResults.firstChild);
+    }
   }
+
+
 }
 
 function captureInput() {
   userInput = searchInput.value;
+
   const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=0350783f5567adba763f73f89851b1f5&query=${userInput}`;
   const listResults = document.querySelector(".container"); // 선택한 목록 요소
-  clearListResults();
+  clearListResults(userInput);
 
   // Make an API request
   fetch(searchUrl)
