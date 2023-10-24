@@ -54,32 +54,6 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
         event.target.style.border = 'none';
       }, false);
     });
-
-    //영화 검색 기능
-    const searchInput = document.getElementById('search');
-    const searchBtn = document.getElementById('searchBtn');
-
-    searchInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        searchBtn.click();
-      }
-    });
-
-    searchBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const val = searchInput.value.toLowerCase();
-      const movieCards = document.querySelectorAll('.card');
-
-      movieCards.forEach(card => {
-        const title = card.querySelector('.title').textContent.toLowerCase(); // 카드 안의 타이틀 요소 가져오기
-        if (title.includes(val)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
   })
 
   .catch(error => {
