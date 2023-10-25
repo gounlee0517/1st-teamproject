@@ -37,6 +37,7 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options)
     star.innerHTML = `★<br>${stars}`;
     text.innerHTML = overviews;
 
+    //장르 3개만 노출
     genres.forEach((genre) => {
       const genreItem = document.createElement("li");
       genreItem.textContent = genre.name;

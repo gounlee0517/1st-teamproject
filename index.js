@@ -164,3 +164,6 @@ searchInput.addEventListener("keyup", function (event) {
     captureInput();
   }
 });
+
+
+//검색 결과를 뒤로가기 해도 보이게
