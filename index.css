@@ -171,3 +171,60 @@ footer > p {
   cursor: pointer;
 }
 
+
+/* 검색창 */
+.input {
+  position: relative;
+  width: 100%;
+  margin-left: 30px;
+  margin-top: 65px;
+  font-weight:lighter;
+}
+
+#inputBox {
+  font-size: 15px;
+  color: #FFCA3D;
+  width: 60%;
+  border: none;
+  border-bottom:solid #FFCA3D 1px;
+  padding-bottom: 10px;
+
+  position: relative;
+  background: none;
+  z-index: 5;
+}
+
+input::placeholder {color: #FFCA3D;}
+input:focus {outline: none;}
+
+#inputBar {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 20.0%;
+  background-color: #FFCA3D;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  transition: 1.5s;
+}
+
+#search_input {
+  position: absolute;
+  color: #FFCA3D;
+  left: 20.5%;
+  font-size: 20px;
+  bottom: 8px;
+  transition: all .2s;
+}
+
+input:focus ~ #search_input, input:valid ~ #search_input {
+  font-size: 17.5px;
+  bottom: 40px;
+  color: #FFCA3D;
+  font-weight: bold;
+}
+
+input:focus ~ #inputBar, input:valid ~ #inputBar {
+  width: 60%;
+}
