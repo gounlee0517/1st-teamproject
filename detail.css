@@ -1,20 +1,22 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   text-align: center;
   background-color: black;
+  font-family: "avenir";
 }
 
 p {
   font-size: 16px;
-  font-family: 'avenir';
+  font-family: "avenir";
 }
 
 a {
   text-decoration: none;
-  color: #FFCA3D;
+  color: #ffca3d;
   font-size: 18px;
-  font-family: 'avenir';
+  font-family: "avenir";
 }
 
 .navbar-list {
@@ -37,7 +39,7 @@ a {
 .movie-detail {
   width: 70%;
   margin: 0 auto 0 auto;
-  border : 1px solid #FFCA3D;
+  border: 1px solid #ffca3d;
 }
 
 .container {
@@ -46,8 +48,53 @@ a {
   display: flex;
 }
 
+.container > div {
+  width: 30vw;
+  margin: 10px auto 0 auto;
+  text-align: center;
+  align-items: center;
+}
+
+.container > div > h1 {
+  font-family: "helvetica neue";
+  letter-spacing: 10px;
+}
+
+.container > div > h4 {
+  color: #ffca3d;
+  margin-bottom: 7vh;
+}
+
+.container > div > ul {
+  list-style: none;
+  text-align: center;
+  margin-left: -10px;
+}
+
+.container > div > ul > li {
+  display: inline-block;
+  font-size: 13px;
+  padding: 8px 25px;
+
+  margin-right: 20px;
+  color: #ffca3d;
+  border: 1px solid #ffca3d;
+  transition: all 1s;
+}
+
+.container > div > ul > li:hover {
+  color: black;
+  background-color: #ffca3d;
+}
+
+.container > div > p {
+  font-size: 18px;
+  color: #999487;
+  margin-top: 5vh;
+}
+
 .container > img {
-  width: 400px;
+  width: 350px;
   height: 500px;
 }
 
