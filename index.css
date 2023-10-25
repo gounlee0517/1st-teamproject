@@ -182,12 +182,22 @@ footer > p {
   margin-top: 65px;
   margin-bottom: 100px;
   font-weight:lighter;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.width {
+  position: relative;
+  width: 500px;
+
 }
 
 #inputBox {
   font-size: 15px;
   color: #FFCA3D;
-  width: 40%;
+  width: 350px;
   border: none;
   border-bottom:solid #FFCA3D 1px;
   padding-bottom: 15px;
@@ -204,10 +214,10 @@ input:focus {outline: none;}
   display: block;
   position: absolute;
   bottom: 0;
-  left: 23.2%;
+  left: 12px;
   background-color: #FFCA3D;
   width: 0;
-  height: 2px;
+  height: 3px;
   border-radius: 2px;
   transition: 1.5s;
 }
@@ -215,7 +225,7 @@ input:focus {outline: none;}
 #search_input {
   position: absolute;
   color: #FFCA3D;
-  left: 24.0%;
+  left: 20px;
   font-size: 20px;
   bottom: 8px;
   transition: all .2s;
@@ -229,7 +239,7 @@ input:focus ~ #search_input, input:valid ~ #search_input {
 }
 
 input:focus ~ #inputBar, input:valid ~ #inputBar {
-  width: 40%;
+  width: 350px;
 }
 
 
@@ -240,7 +250,6 @@ input:focus ~ #inputBar, input:valid ~ #inputBar {
   margin-left: 20px;
 
   border-style: none;
-  border-radius: 25px;
 
   font-family: 'avenir';
   font-size: 16px;
