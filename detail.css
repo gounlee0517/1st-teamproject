@@ -4,7 +4,7 @@ body {
   padding: 0;
   text-align: center;
   background-color: black;
-  font-family: "avenir";
+  font-family: "nanum godic";
 }
 
 p {
@@ -91,6 +91,7 @@ a {
   font-size: 18px;
   color: #999487;
   margin-top: 5vh;
+  font-family: "nanum godic";
 }
 
 .container > img {
