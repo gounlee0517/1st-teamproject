@@ -82,6 +82,13 @@ document.querySelector('.footer-main').addEventListener('click', function () {
 const searchInput = document.getElementById('inputBox');
 const searchBtn = document.getElementById('searchBtn');
 
+searchBtn.addEventListener("click", captureInput);
+searchInput.addEventListener("keyup", function (event) {
+  if (event.key === "Enter") {
+    captureInput();
+  }
+});
+
 function clearListResults(userInput) {
   console.log(userInput);
   if (userInput == "") {
@@ -92,9 +99,24 @@ function clearListResults(userInput) {
       listResults.removeChild(listResults.firstChild);
     }
   }
+  
+  const mainsearch = document.getElementById('mainsearch');
 
+  console.dir(searchInput);
+  console.log(searchBtn);
 
-}
+  let movietitle = "";
+
+  function getMovieTitle() {
+    movietitle = searchInput.value;
+    console.log(movietitle);
+
+    if (movietitle === "") {
+      alert('영화 제목을 입력해주세요');
+    }
+  }
+  getMovieTitle()
+};
 
 function captureInput() {
   userInput = searchInput.value;
@@ -142,10 +164,5 @@ function captureInput() {
       console.error("There was a problem with the fetch operation:", error);
     });
 }
-
-searchBtn.addEventListener("click", captureInput);
-searchInput.addEventListener("keyup", function (event) {
-  if (event.key === "Enter") {
-    captureInput();
   }
 });
