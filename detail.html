@@ -9,11 +9,20 @@
   <body>
     <nav class="navbar-list">
       <ul class="navbar-menu">
-        <li><a href="#">HOME</a></li>
+        <li><a href="#" onclick="history.back()">HOME</a></li>
         <li class="nav-search"><a href="javascript:;">SEARCH</a></li>
         <li class="nav-movielist"><a href="javascript:;">REVIEW</a></li>
       </ul>
     </nav>
+
+    <div class="input input-toggle">
+      <div class="width">
+        <input type="search" id="inputBox" required>
+        <label id="search_input">type your keyword</label>
+        <span id="inputBar"></span>
+        <button id="searchBtn">search</button>
+      </div>
+    </div>
 
     <section class="movie-detail">
       <div class="container">

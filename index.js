@@ -27,7 +27,6 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
       item.appendChild(link)
       item.appendChild(title)
       link.appendChild(poster)
-      link.target = '_blank';
 
       poster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
       title.innerHTML = `${movie.title}`;
@@ -92,8 +91,6 @@ function clearListResults(userInput) {
       listResults.removeChild(listResults.firstChild);
     }
   }
-
-
 }
 
 function captureInput() {

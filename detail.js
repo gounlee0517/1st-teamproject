@@ -41,8 +41,8 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options)
       const genreItem = document.createElement("li");
       genreItem.textContent = genre.name;
       genreList.appendChild(genreItem);
-    })
-    
+    });
+
     div.appendChild(title);
     div.appendChild(star);
     div.appendChild(genreList);
@@ -51,7 +51,20 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options)
     const container = document.getElementsByClassName("container")[0];
     container.appendChild(img);
     container.appendChild(div);
-    
   })
 
   .catch((err) => console.error(err));
+
+//search toggle
+const searchBtn = document.querySelector(".nav-search");
+const searchContainer = document.querySelector(".input");
+const searchInput = document.querySelector(".width");
+
+searchBtn.addEventListener("click", () => {
+  searchContainer.classList.toggle("active");
+  searchInput.classList.toggle("active");
+});
+
+document.querySelector(".nav-movielist").addEventListener("click", function () {
+  window.scrollTo(0, 0, window.innerHeight);
+});
