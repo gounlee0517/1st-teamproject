@@ -32,9 +32,31 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options)
     let star = document.createElement("h4");
     let genreList = document.createElement("ul");
 
+    function printStars(number) {
+      if (number < 0 || number > 10) {
+        console.log("숫자는 0에서 10 사이어야 합니다.");
+        return;
+      }
+
+      let stars = "";
+      for (let i = 0; i < number / 2 - 1; i++) {
+        stars += "★";
+      }
+      console.log(number);
+      const decimalPart = number - Math.floor(number);
+      console.log(decimalPart);
+      if (decimalPart >= 0.5) {
+        stars += "☆";
+      }
+      return stars;
+    }
+
+    console.log(printStars(stars));
+
     img.src = `https://image.tmdb.org/t/p/w300${imgs}`;
     title.innerHTML = titles;
-    star.innerHTML = `★<br>${stars}`;
+    star.innerHTML = `${printStars(stars)}`;
+    console.log(typeof stars);
     text.innerHTML = overviews;
 
     //장르 3개만 노출
@@ -108,6 +130,6 @@ for (let i = 0; i < localStorage.length; i++) {
     listItem.textContent = `ID: ${id}, Review: ${storedData.review}`;
     reviewsList.appendChild(listItem);
   } else {
-    console.log("why");
+    console.log("why not working");
   }
 }
