@@ -39,16 +39,15 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
       poster.classList.add('poster');
 
       //이미지 링크
-      link.href = `detail.html?id=${movie.id}` 
+      link.href = `detail.html?id=${movie.id}`
 
       //card border 스타일 주기 
       item.addEventListener("mouseover", (event) => {
         event.target.style.border = '1px solid #FFCA3D';
         event.target.style.transition = 'all 0.4s ease-in-out';
-        
+
         title.style.border = 'none';
         poster.style.border = 'none';
-        link.style,border = 'none';
       }, false);
 
       item.addEventListener("mouseout", (event) => {
@@ -91,7 +90,25 @@ function clearListResults(userInput) {
       listResults.removeChild(listResults.firstChild);
     }
   }
-}
+  
+  // 영화 검색 validation check
+  const mainsearch = document.getElementById('mainsearch');
+
+  console.dir(searchInput);
+  console.log(searchBtn);
+
+  let movietitle = "";
+
+  function getMovieTitle() {
+    movietitle = searchInput.value;
+    console.log(movietitle);
+
+    if (movietitle === "") {
+      alert('영화 제목을 입력해주세요');
+    }
+  }
+  getMovieTitle()
+};
 
 function captureInput() {
   userInput = searchInput.value;
@@ -122,13 +139,13 @@ function captureInput() {
           poster.alt = movie.title;
           title.textContent = movie.title;
 
-          item.appendChild(link); 
+          item.appendChild(link);
           item.appendChild(title);
           link.appendChild(poster);
 
           //이미지 링크
-          link.href = `detail.html?id=${movie.id}` 
-          
+          link.href = `detail.html?id=${movie.id}`
+
           listResults.appendChild(item); // li 요소를 목록에 추가
         });
       } else {
@@ -139,6 +156,7 @@ function captureInput() {
       console.error("There was a problem with the fetch operation:", error);
     });
 }
+
 
 searchBtn.addEventListener("click", captureInput);
 searchInput.addEventListener("keyup", function (event) {
