@@ -17,7 +17,7 @@
 
     <div class="input input-toggle">
       <div class="width">
-        <input type="search" id="inputBox" required>
+        <input type="search" id="inputBox" required />
         <label id="search_input">type your keyword</label>
         <span id="inputBar"></span>
         <button id="searchBtn">search</button>
@@ -35,11 +35,15 @@
       </div>
     </section>
 
-    <section class="review">
-      <div>
-        <ul></ul>
+    <div class="container">
+      <div class="login_section">
+        <input type="text" class="idInput" placeholder="ID" />
+        <input type="text" class="passwordInput" placeholder="Passsword" />
       </div>
-    </section>
+      <input type="text" class="reviewInput" placeholder="Review" />
+      <button class="submitButton">Submit Review</button>
+    </div>
+    <ul class="reviews"></ul>
 
     <script src="./detail.js"></script>
   </body>

@@ -69,3 +69,45 @@ searchBtn.addEventListener("click", () => {
 document.querySelector(".nav-movielist").addEventListener("click", function () {
   window.scrollTo(0, 0, window.innerHeight);
 });
+
+//////Review Section
+const idInput = document.querySelector(".idInput");
+const passwordInput = document.querySelector(".passwordInput");
+const reviewInput = document.querySelector(".reviewInput");
+const submitButton = document.querySelector(".submitButton");
+const reviewsList = document.querySelector(".reviews");
+
+submitButton.addEventListener("click", function () {
+  const id = idInput.value;
+  const password = passwordInput.value;
+  const review = reviewInput.value;
+
+  if (!id || !password || !review) {
+    alert("Please fill in all fields");
+    return;
+  }
+
+  const userObject = { password: password, review: review };
+  localStorage.setItem(id, JSON.stringify(userObject));
+
+  console.log(id, password, review);
+
+  idInput.value = "";
+  passwordInput.value = "";
+  reviewInput.value = "";
+});
+
+console.log(localStorage.length);
+
+for (let i = 0; i < localStorage.length; i++) {
+  const id = localStorage.key(i);
+  const storedData = JSON.parse(localStorage.getItem(id));
+
+  if (id && storedData && storedData.review) {
+    const listItem = document.createElement("li");
+    listItem.textContent = `ID: ${id}, Review: ${storedData.review}`;
+    reviewsList.appendChild(listItem);
+  } else {
+    console.log("why");
+  }
+}
