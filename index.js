@@ -77,7 +77,7 @@ document.querySelector('.footer-main').addEventListener('click', function () {
 
 
 // 검색 기능
-const searchInput = document.getElementById('search');
+const searchInput = document.getElementById('inputBox');
 const searchBtn = document.getElementById('searchBtn');
 
 function clearListResults(userInput) {
@@ -117,7 +117,7 @@ function captureInput() {
           const item = document.createElement("div");
           const title = document.createElement('h4');
           const poster = document.createElement("img");
-          const link = document.createElement('a')
+          const link = document.createElement('a');
 
           poster.src = `https://image.tmdb.org/t/p/w200${movie.poster_path}`; // 포스터 이미지 URL
           poster.alt = movie.title;
