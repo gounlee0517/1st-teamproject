@@ -49,6 +49,7 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
         
         title.style.border = 'none';
         poster.style.border = 'none';
+        link.style,border = 'none';
       }, false);
 
       item.addEventListener("mouseout", (event) => {
