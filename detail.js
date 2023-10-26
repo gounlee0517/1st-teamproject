@@ -25,7 +25,7 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options)
     const imgs = data.poster_path;
     const genres = data.genres;
     const dates = data.release_date;
-    const dateWithSpace = dates.replace(/-/g, " ");
+    const dateWithSpace = dates.replace(/-/g, " . ");
 
     console.log(dateWithSpace);
 
