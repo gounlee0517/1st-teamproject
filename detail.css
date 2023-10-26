@@ -49,30 +49,30 @@ a {
   display: flex;
 }
 
-.container > div {
+.container>div {
   width: 30vw;
   margin: 10px auto 0 auto;
   text-align: center;
   align-items: center;
 }
 
-.container > div > h1 {
+.container>div>h1 {
   font-family: "catchye demo";
   letter-spacing: 10px;
 }
 
-.container > div > h4 {
+.container>div>h4 {
   color: #ffca3d;
   margin-bottom: 7vh;
 }
 
-.container > div > ul {
+.container>div>ul {
   list-style: none;
   text-align: center;
   margin-left: -10px;
 }
 
-.container > div > ul > li {
+.container>div>ul>li {
   display: inline-block;
   font-size: 13px;
   padding: 8px 25px;
@@ -83,19 +83,19 @@ a {
   transition: all 1s;
 }
 
-.container > div > ul > li:hover {
+.container>div>ul>li:hover {
   color: black;
   background-color: #ffca3d;
 }
 
-.container > div > p {
+.container>div>p {
   font-size: 18px;
   color: #999487;
   margin-top: 5vh;
   font-family: "Times New Roman", Times, serif;
 }
 
-.container > img {
+.container>img {
   width: 350px;
   height: 500px;
 }
@@ -158,6 +158,7 @@ a {
 input::placeholder {
   color: #ffca3d;
 }
+
 input:focus {
   outline: none;
 }
@@ -183,16 +184,16 @@ input:focus {
   transition: all 0.2s;
 }
 
-input:focus ~ #search_input,
-input:valid ~ #search_input {
+input:focus~#search_input,
+input:valid~#search_input {
   font-size: 17.5px;
   bottom: 40px;
   color: #ffca3d;
   font-weight: bold;
 }
 
-input:focus ~ #inputBar,
-input:valid ~ #inputBar {
+input:focus~#inputBar,
+input:valid~#inputBar {
   width: 350px;
 }
 
@@ -214,4 +215,58 @@ input:valid ~ #inputBar {
   cursor: pointer;
   background-color: #999487;
   color: white;
+}
+
+/*review*/
+.container2 {
+  width: 70%;
+  height: 300px;
+  margin: 30px auto 0 auto;
+}
+
+/*.input_section {
+  
+}*/
+
+.login_section {
+  height: 100px;
+}
+
+.login_section>input {
+  padding: 10px 25px;
+  border: 1px solid #ffca3d;
+  background-color: black;
+  color: white;
+  transform: translateY(80%);
+}
+.login_section>input:nth-child(1) {
+  margin-right: 10px;
+}
+
+.review_section {
+  height: 200px;
+}
+
+.review_section>input {
+  width: 310px;
+  height: 80px;
+
+  background-color: black;
+  color: white;
+  border: 1px solid #ffca3d;
+
+  text-align: center;
+}
+
+.review_section>button {
+  padding: 35px 15px;
+  color: black;
+  background-color: #ffca3d;
+  border-style: none;
+  margin-left: 10px;
+}
+
+.reviews>li {
+  color: white;
+  list-style: none;
 }
