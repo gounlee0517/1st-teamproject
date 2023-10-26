@@ -1,0 +1,276 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  background-color: black;
+  scroll-behavior: smooth;
+}
+
+p {
+  font-size: 16px;
+  font-family: "avenir";
+}
+
+h4 {
+  color: #999487;
+}
+
+a {
+  text-decoration: none;
+  color: #ffca3d;
+  font-size: 18px;
+  font-family: "avenir";
+}
+
+.navbar-list {
+  position: sticky;
+  top: 0;
+  display: inline-block;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+}
+
+.navbar-menu li {
+  padding-right: 20px;
+}
+
+header {
+  width: 100%;
+  height: 900px;
+  margin-top: -130px;
+
+  background-image: url(./img.webp);
+  background-position: center;
+  background-size: cover;
+
+  font-family: "helvetica neue";
+  font-size: 45px;
+  letter-spacing: 15px;
+}
+
+header > h1 {
+  transform: translateY(250px);
+  color: #ffca3d;
+}
+
+.main-search {
+  width: 100%;
+  height: 400px;
+  line-height: 34vh;
+}
+
+#search {
+  width: 250px;
+  height: 50px;
+  margin-right: 10px;
+
+  border-style: none;
+  border: 1px solid #ffca3d;
+
+  background-color: transparent;
+  color: white;
+
+  font-family: "nanum godic";
+  text-align: center;
+  align-items: center;
+}
+
+.main-search > button {
+  width: 100px;
+  height: 50px;
+
+  border-style: none;
+
+  font-family: "avenir";
+  font-size: 16px;
+  background-color: #ffca3d;
+  color: black;
+  transition: all 0.2s;
+}
+
+.main-search > button:hover {
+  cursor: pointer;
+  background-color: #999487;
+  color: white;
+}
+
+.main-list {
+  color: #ffca3d;
+  font-family: "helvetica neue";
+  font-size: 30px;
+  letter-spacing: 10px;
+  margin-bottom: -20px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-rows: repeat(auto-fill, minmax(300px, auto)); */
+  grid-auto-rows: minmax(300px, auto);
+  grid-column-gap: 50px;
+  grid-row-gap: 50px;
+
+  padding: 70px;
+  margin-bottom: 50px;
+}
+
+.container > div {
+  padding: 15px;
+  padding-top: 25px;
+  margin-bottom: 50px;
+}
+
+.container > div > h3 {
+  width: 200px;
+  color: black;
+  background-color: #ffca3d;
+  margin: 0 auto -13px auto;
+  font-weight: 400;
+}
+
+.container > div > a > img {
+  width: 200px;
+  height: 300px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.container > div > h4 {
+  font-family: "nanum godic";
+  font-weight: lighter;
+  font-size: 18px;
+  color: white;
+}
+
+.container > div > p {
+  font-size: 14px;
+  font-family: "TT Hoves Pro Trl Expanded";
+  line-height: 1.5;
+  color: #999487;
+}
+
+.container > div > p > span {
+  color: #ffca3d;
+}
+
+footer {
+  width: 90%;
+  padding: 10px;
+  margin: 0 auto 0 auto;
+
+  border-top: 1px solid #ffca3d;
+  color: #ffca3d;
+
+  font-family: "helvetica neue";
+}
+
+footer > p {
+  font-family: "nanum godic";
+  font-size: 14px;
+  color: #999487;
+}
+
+.footer-main:hover {
+  cursor: pointer;
+}
+
+
+/* 검색창 */
+.input {
+  position: relative;
+  width: 100%;
+  margin-left: 30px;
+  margin-top: 65px;
+  margin-bottom: 200px;
+  font-weight: lighter;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.width {
+  position: relative;
+  width: 500px;
+}
+
+#inputBox {
+  font-size: 15px;
+  color: #ffca3d;
+  width: 350px;
+  border: none;
+  border-bottom: solid #ffca3d 1px;
+  padding-bottom: 15px;
+
+  position: relative;
+  background: none;
+  z-index: 5;
+}
+
+input::placeholder {
+  color: #ffca3d;
+}
+input:focus {
+  outline: none;
+}
+
+#inputBar {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  background-color: #ffca3d;
+  width: 0;
+  height: 3px;
+  border-radius: 2px;
+  transition: 1.5s;
+}
+
+#search_input {
+  position: absolute;
+  color: #ffca3d;
+  left: 20px;
+  font-size: 20px;
+  bottom: 8px;
+  transition: all 0.2s;
+}
+
+input:focus ~ #search_input,
+input:valid ~ #search_input {
+  font-size: 17.5px;
+  bottom: 40px;
+  color: #ffca3d;
+  font-weight: bold;
+}
+
+input:focus ~ #inputBar,
+input:valid ~ #inputBar {
+  width: 350px;
+}
+
+#searchBtn {
+  width: 100px;
+  height: 50px;
+  margin-left: 20px;
+
+  border-style: none;
+
+  font-family: "avenir";
+  font-size: 16px;
+  background-color: #ffca3d;
+  color: black;
+  transition: all 0.2s;
+}
+
+#searchBtn:hover {
+  cursor: pointer;
+  background-color: #999487;
+  color: white;
+}

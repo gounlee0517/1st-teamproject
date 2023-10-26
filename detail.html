@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="./detail.css" rel="stylesheet" />
+  <title>영화 상세 페이지</title>
+</head>
+
+<body>
+  <nav class="navbar-list">
+    <ul class="navbar-menu">
+      <li><a href="#" onclick="history.back()">HOME</a></li>
+      <li class="nav-search"><a href="javascript:;">SEARCH</a></li>
+      <li class="nav-movielist"><a href="javascript:;">REVIEW</a></li>
+    </ul>
+  </nav>
+
+  <div class="input input-toggle">
+    <div class="width">
+      <input type="search" id="inputBox" required />
+      <label id="search_input">type your keyword</label>
+      <span id="inputBar"></span>
+      <button id="searchBtn">search</button>
+    </div>
+  </div>
+
+  <div class="container2 input-toggle">
+    <div class="input_section">
+      <div class="login_section">
+        <input type="text" class="idInput" placeholder="ID" />
+        <input type="text" class="passwordInput" placeholder="Passsword" />
+      </div>
+      <div class="review_section">
+        <input type="text" class="reviewInput" placeholder="Review" />
+        <button class="submitButton">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="movie-detail">
+    <div class="container">
+      <!-- <img src="./img.webp" />
+        <div class="text-item">
+          <h1>title</h1>
+          <h4>star</h4>
+          <p>overview</p>
+        </div> -->
+    </div>
+  </section>
+
+  <div class="review-container">
+    <h2>REVIEWS</h2>
+    <ul class="reviews"></ul>
+  </div>
+
+
+  <script src="./detail.js"></script>
+</body>
+
+</html>
