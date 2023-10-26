@@ -111,7 +111,6 @@ a {
   width: 100%;
   height: 180px;
   margin-left: 30px;
-  margin-bottom: 50px;
   font-weight: lighter;
 
   display: flex;
@@ -219,17 +218,28 @@ input:valid~#inputBar {
 
 /*review*/
 .container2 {
-  width: 70%;
-  height: 300px;
-  margin: 30px auto 0 auto;
+  height: 200px;
+  margin: 10px auto 50px auto;
+  transition: all 0.8s;
+  transform: translateY(-10px);
 }
 
-/*.input_section {
-  
-}*/
+.input_section {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.container2.active {
+  max-height: 200px;
+}
+
+.input_section.active {
+  opacity: 1;
+}
 
 .login_section {
   height: 100px;
+  margin-bottom: -10px;
 }
 
 .login_section>input {
@@ -239,6 +249,7 @@ input:valid~#inputBar {
   color: white;
   transform: translateY(80%);
 }
+
 .login_section>input:nth-child(1) {
   margin-right: 10px;
 }
@@ -266,7 +277,23 @@ input:valid~#inputBar {
   margin-left: 10px;
 }
 
+.review-container {
+  width: 70%;
+  margin: 90px auto 150px auto;
+}
+
+.review-container > h2 {
+  color:#ffca3d;
+  font-size: 30px;
+}
+
 .reviews>li {
-  color: white;
+  width: 80%;
+  padding: 20px;
   list-style: none;
+  margin: 50px auto 50px auto;
+
+  font-size: 19px;
+  color: #999487;
+  border: 1px solid #ffca3d;
 }

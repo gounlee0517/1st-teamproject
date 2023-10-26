@@ -17,28 +17,35 @@ h4 {
   color: #999487;
 }
 
-a {
+
+.navbar-list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+
+  position: sticky;
+  top: 0;
+  padding: 5px 10px;
+
+  transition: 1s;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+
   text-decoration: none;
   color: #ffca3d;
   font-size: 18px;
   font-family: "avenir";
 }
 
-.navbar-list {
-  position: sticky;
-  top: 0;
-  display: inline-block;
-  align-items: center;
-  padding: 5px 10px;
-}
-
-.navbar-menu {
-  list-style: none;
-  display: flex;
-}
-
 .navbar-menu li {
   padding-right: 20px;
+  cursor: pointer;
 }
 
 header {
@@ -65,6 +72,7 @@ header>h1 {
   font-family: "helvetica neue";
   font-size: 30px;
   letter-spacing: 10px;
+  margin-bottom: -20px;
 }
 
 .container {
@@ -85,6 +93,24 @@ header>h1 {
   margin-bottom: 50px;
   margin-left: 70px;
   margin-right: 70px;
+}
+
+.container > div > h3 {
+  width: 190px;
+  padding: 4px;
+  letter-spacing: 3px;
+  color: black;
+  background-color: #ffca3d;
+  margin: 0 auto -13px auto;
+}
+
+.container > div > h3 {
+  width: 190px;
+  padding: 4px;
+  letter-spacing: 3px;
+  color: black;
+  background-color: #ffca3d;
+  margin: 0 auto -13px auto;
 }
 
 .container>div>a>img {
@@ -141,6 +167,7 @@ footer>p {
 .footer-main:hover {
   cursor: pointer;
 }
+
 
 /* 검색창 */
 .input {
@@ -234,8 +261,4 @@ input:valid~#inputBar {
   cursor: pointer;
   background-color: #999487;
   color: white;
-}
-
-h3 {
-  color: #ffca3d;
 }
