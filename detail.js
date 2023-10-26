@@ -93,6 +93,18 @@ searchBtn.addEventListener("click", () => {
   searchInput.classList.toggle("active");
 });
 
+//review toggle
+const reviewBtn = document.querySelector('.nav-movielist');
+const reviewContainer = document.querySelector('.container2');
+const review_Input = document.querySelector('.input_section');
+
+reviewBtn.addEventListener("click", () => {
+  reviewContainer.classList.toggle("active");
+  review_Input.classList.toggle("active");
+});
+
+
+
 document.querySelector(".nav-movielist").addEventListener("click", function () {
   window.scrollTo(0, 0, window.innerHeight);
 });
@@ -132,7 +144,7 @@ for (let i = 0; i < localStorage.length; i++) {
 
   if (id && storedData && storedData.review) {
     const listItem = document.createElement("li");
-    listItem.textContent = `ID: ${id}, Review: ${storedData.review}`;
+    listItem.innerHTML = `ID: ${id} <br><br> ${storedData.review}`;
     reviewsList.appendChild(listItem);
   } else {
     console.log("why not working");
