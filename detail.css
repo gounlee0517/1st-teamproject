@@ -224,7 +224,6 @@ input:valid~#inputBar {
 
 /*review*/
 .container2 {
-  width: 70%;
   height: 200px;
   margin: 10px auto 50px auto;
   transition: all 0.8s;

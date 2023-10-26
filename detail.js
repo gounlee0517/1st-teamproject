@@ -24,13 +24,19 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options)
     const stars = data.vote_average;
     const imgs = data.poster_path;
     const genres = data.genres;
+    const dates = data.release_date;
+    const dateWithSpace = dates.replace(/-/g, " . ");
 
-    let div = document.createElement("div");
-    let title = document.createElement("h1");
-    let text = document.createElement("p");
-    let img = document.createElement("img");
-    let star = document.createElement("h4");
-    let genreList = document.createElement("ul");
+    console.log(dateWithSpace);
+
+    const div = document.createElement("div");
+    const title = document.createElement("h1");
+    const text = document.createElement("p");
+    const img = document.createElement("img");
+    const star = document.createElement("h4");
+    const release_date = document.createElement("p");
+
+    const genreList = document.createElement("ul");
 
     function printStars(number) {
       if (number < 0 || number > 10) {
@@ -58,6 +64,7 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options)
     star.innerHTML = `${printStars(stars)}`;
     console.log(typeof stars);
     text.innerHTML = overviews;
+    release_date.innerHTML = dateWithSpace;
 
     genres.forEach((genre, index) => {
       if (index < 3) {
@@ -73,6 +80,7 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options)
 
     div.appendChild(title);
     div.appendChild(star);
+    div.appendChild(release_date);
     div.appendChild(genreList);
     div.appendChild(text);
 
@@ -94,16 +102,14 @@ searchBtn.addEventListener("click", () => {
 });
 
 //review toggle
-const reviewBtn = document.querySelector('.nav-movielist');
-const reviewContainer = document.querySelector('.container2');
-const review_Input = document.querySelector('.input_section');
+const reviewBtn = document.querySelector(".nav-movielist");
+const reviewContainer = document.querySelector(".container2");
+const review_Input = document.querySelector(".input_section");
 
 reviewBtn.addEventListener("click", () => {
   reviewContainer.classList.toggle("active");
   review_Input.classList.toggle("active");
 });
-
-
 
 document.querySelector(".nav-movielist").addEventListener("click", function () {
   window.scrollTo(0, 0, window.innerHeight);

@@ -28,8 +28,8 @@ h4 {
 
   position: sticky;
   top: 0;
-  padding: 5px 10px;
-
+  padding-top: 5px;
+  padding-bottom: 5px;
   transition: 1s;
 }
 
@@ -62,50 +62,9 @@ header {
   letter-spacing: 15px;
 }
 
-header > h1 {
+header>h1 {
   transform: translateY(250px);
   color: #ffca3d;
-}
-
-.main-search {
-  width: 100%;
-  height: 400px;
-  line-height: 34vh;
-}
-
-#search {
-  width: 250px;
-  height: 50px;
-  margin-right: 10px;
-
-  border-style: none;
-  border: 1px solid #ffca3d;
-
-  background-color: transparent;
-  color: white;
-
-  font-family: "nanum godic";
-  text-align: center;
-  align-items: center;
-}
-
-.main-search > button {
-  width: 100px;
-  height: 50px;
-
-  border-style: none;
-
-  font-family: "avenir";
-  font-size: 16px;
-  background-color: #ffca3d;
-  color: black;
-  transition: all 0.2s;
-}
-
-.main-search > button:hover {
-  cursor: pointer;
-  background-color: #999487;
-  color: white;
 }
 
 .main-list {
@@ -113,7 +72,6 @@ header > h1 {
   font-family: "helvetica neue";
   font-size: 30px;
   letter-spacing: 10px;
-  margin-bottom: -20px;
 }
 
 .container {
@@ -128,14 +86,15 @@ header > h1 {
   margin-bottom: 50px;
 }
 
-.container > div {
+.container>div {
   padding: 15px;
   padding-top: 25px;
   margin-bottom: 50px;
+  margin: 0 auto 0 auto;
 }
 
 .container > div > h3 {
-  width: 190px;
+  width: 260px;
   padding: 4px;
   letter-spacing: 3px;
   color: black;
@@ -143,28 +102,36 @@ header > h1 {
   margin: 0 auto -13px auto;
 }
 
-.container > div > a > img {
-  width: 200px;
-  height: 300px;
+.container>div>a>img {
+  width: 270px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.container > div > h4 {
+.container>div>h4 {
   font-family: "nanum godic";
   font-weight: lighter;
   font-size: 18px;
   color: white;
+
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
 }
 
-.container > div > p {
+.container>div:hover>h4 {
+  opacity: 1;
+  transform: translateY(-400%);
+  transition: all 0.3s ease-in-out;
+}
+
+.container>div>p {
   font-size: 14px;
   font-family: "TT Hoves Pro Trl Expanded";
   line-height: 1.5;
   color: #999487;
 }
 
-.container > div > p > span {
+.container>div>p>span {
   color: #ffca3d;
 }
 
@@ -179,7 +146,7 @@ footer {
   font-family: "helvetica neue";
 }
 
-footer > p {
+footer>p {
   font-family: "nanum godic";
   font-size: 14px;
   color: #999487;
@@ -194,8 +161,8 @@ footer > p {
 .input {
   position: relative;
   width: 100%;
-  margin-left: 30px;
-  margin-top: 65px;
+  /* margin-left: 30px; */
+  margin-top: 100px;
   margin-bottom: 200px;
   font-weight: lighter;
 
@@ -225,6 +192,7 @@ footer > p {
 input::placeholder {
   color: #ffca3d;
 }
+
 input:focus {
   outline: none;
 }
@@ -250,16 +218,16 @@ input:focus {
   transition: all 0.2s;
 }
 
-input:focus ~ #search_input,
-input:valid ~ #search_input {
+input:focus~#search_input,
+input:valid~#search_input {
   font-size: 17.5px;
   bottom: 40px;
   color: #ffca3d;
   font-weight: bold;
 }
 
-input:focus ~ #inputBar,
-input:valid ~ #inputBar {
+input:focus~#inputBar,
+input:valid~#inputBar {
   width: 350px;
 }
 
