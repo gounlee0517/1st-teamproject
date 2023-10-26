@@ -130,6 +130,9 @@ submitButton.addEventListener("click", function () {
   if (!id || !password || !review) {
     alert("Please fill in all fields");
     return;
+  } else if (review.includes("ㅅㅂ", "ㅂㅅ")) {
+    alert("욕하면 안되요...");
+    return;
   }
 
   const userObject = { password: password, review: review };
