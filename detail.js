@@ -59,11 +59,16 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options)
     console.log(typeof stars);
     text.innerHTML = overviews;
 
-    //장르 3개만 노출
-    genres.forEach((genre) => {
-      const genreItem = document.createElement("li");
-      genreItem.textContent = genre.name;
-      genreList.appendChild(genreItem);
+    genres.forEach((genre, index) => {
+      if (index < 3) {
+        console.log("valid");
+        const genreItem = document.createElement("li");
+        genreItem.textContent = genre.name;
+        genreList.appendChild(genreItem);
+      }
+      // const genreItem = document.createElement("li");
+      // genreItem.textContent = genre.name;
+      // genreList.appendChild(genreItem);
     });
 
     div.appendChild(title);
