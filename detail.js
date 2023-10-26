@@ -157,9 +157,14 @@ for (let i = 0; i < localStorage.length; i++) {
   }
 }
 
+// Home button
+const homeButton = document.querySelector('.nav-top')
+homeButton.addEventListener('click', homeBtn)
+function homeBtn () {
+  history.back()
+}
 
-
-// 헤더 스크롤 애니메이션
+// Scroll animation
 document.addEventListener('scroll', onScroll, {passive:true});
 
 function onScroll () {
