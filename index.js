@@ -76,6 +76,10 @@ fetch(
   });
 
 //스크롤 이벤트
+document.querySelector(".nav-top").addEventListener("click", function () {
+  window.scrollTo(0, 0, window.innerHeight);
+});
+
 document.querySelector(".nav-search").addEventListener("click", function () {
   window.scrollTo(0, 800, window.innerHeight);
 });
@@ -178,3 +182,25 @@ searchInput.addEventListener("keyup", function (event) {
 
 
 //검색 결과를 뒤로가기 해도 보이게
+
+
+
+// 헤더 스크롤 애니메이션
+document.addEventListener('scroll', onScroll, {passive:true});
+
+function onScroll () {
+  const title = document.querySelector('.title')
+  const titleHeight = title.clientHeight;
+  const scrollposition = pageYOffset;
+  const nav = document.querySelector('.navbar');
+  const navText = document.querySelector('.navbar-menu')
+
+  if (titleHeight <= scrollposition) {
+    nav.style.backgroundColor = '#ffcb3dc1' // 색상 변경  #4747478e
+    navText.style.color = 'black'
+  } else {
+    nav.style.backgroundColor = '#00000000'
+    navText.style.color = '#FFCA3D'
+
+  };
+}

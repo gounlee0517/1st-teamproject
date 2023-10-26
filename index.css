@@ -17,28 +17,35 @@ h4 {
   color: #999487;
 }
 
-a {
+
+.navbar-list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+
+  position: sticky;
+  top: 0;
+  padding: 5px 10px;
+
+  transition: 1s;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+
   text-decoration: none;
   color: #ffca3d;
   font-size: 18px;
   font-family: "avenir";
 }
 
-.navbar-list {
-  position: sticky;
-  top: 0;
-  display: inline-block;
-  align-items: center;
-  padding: 5px 10px;
-}
-
-.navbar-menu {
-  list-style: none;
-  display: flex;
-}
-
 .navbar-menu li {
   padding-right: 20px;
+  cursor: pointer;
 }
 
 header {
