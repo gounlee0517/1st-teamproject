@@ -159,3 +159,31 @@ for (let i = 0; i < localStorage.length; i++) {
     console.log("why not working");
   }
 }
+
+// Home button
+const homeButton = document.querySelector('.nav-top')
+homeButton.addEventListener('click', homeBtn)
+function homeBtn () {
+  history.back()
+}
+
+// Scroll animation
+document.addEventListener('scroll', onScroll, {passive:true});
+
+function onScroll () {
+  const container = document.querySelector('.container')
+  const containerHeight = container.clientHeight;
+  const scrollposition = pageYOffset;
+  const nav = document.querySelector('.navbar');
+  const navText = document.querySelector('.navbar-menu')
+
+  if (1 <= scrollposition) {
+    nav.style.backgroundColor = '#ffcb3dc1' // 색상 변경  #4747478e
+    navText.style.color = 'black'
+  } else {
+    nav.style.backgroundColor = '#00000000'
+    navText.style.color = '#FFCA3D'
+
+  };
+}
+
