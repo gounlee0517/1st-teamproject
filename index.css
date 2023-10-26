@@ -128,11 +128,12 @@ header > h1 {
 }
 
 .container > div > h3 {
-  width: 200px;
+  width: 190px;
+  padding: 4px;
+  letter-spacing: 3px;
   color: black;
   background-color: #ffca3d;
   margin: 0 auto -13px auto;
-  font-weight: 400;
 }
 
 .container > div > a > img {
