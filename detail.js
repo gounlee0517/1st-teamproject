@@ -131,7 +131,7 @@ submitButton.addEventListener("click", function () {
     alert("Please fill in all fields");
     return;
   } else if (review.includes("ㅅㅂ", "ㅂㅅ")) {
-    alert("욕하면 안되요...");
+    alert("욕하면 안돼요...");
     return;
   }
 
@@ -161,29 +161,27 @@ for (let i = 0; i < localStorage.length; i++) {
 }
 
 // Home button
-const homeButton = document.querySelector('.nav-top')
-homeButton.addEventListener('click', homeBtn)
-function homeBtn () {
-  history.back()
+const homeButton = document.querySelector(".nav-top");
+homeButton.addEventListener("click", homeBtn);
+function homeBtn() {
+  history.back();
 }
 
 // Scroll animation
-document.addEventListener('scroll', onScroll, {passive:true});
+document.addEventListener("scroll", onScroll, { passive: true });
 
-function onScroll () {
-  const container = document.querySelector('.container')
+function onScroll() {
+  const container = document.querySelector(".container");
   const containerHeight = container.clientHeight;
   const scrollposition = pageYOffset;
-  const nav = document.querySelector('.navbar');
-  const navText = document.querySelector('.navbar-menu')
+  const nav = document.querySelector(".navbar");
+  const navText = document.querySelector(".navbar-menu");
 
   if (1 <= scrollposition) {
-    nav.style.backgroundColor = '#ffcb3dc1' // 색상 변경  #4747478e
-    navText.style.color = 'black'
+    nav.style.backgroundColor = "#ffcb3dc1"; // 색상 변경  #4747478e
+    navText.style.color = "black";
   } else {
-    nav.style.backgroundColor = '#00000000'
-    navText.style.color = '#FFCA3D'
-
-  };
+    nav.style.backgroundColor = "#00000000";
+    navText.style.color = "#FFCA3D";
+  }
 }
-
