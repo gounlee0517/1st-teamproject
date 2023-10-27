@@ -48,39 +48,6 @@ fetch(
       //이미지 링크 111
       link.href = `detail.html?id=${movie.id}`;
 
-      //card border 스타일 주기
-
-
-      item.addEventListener("mouseover", (event) => {
-        event.target.style.border = "block";
-        event.target.style.transition = "all 0.4 ease-in-out";
-      }, false
-      );
-      
-      item.addEventListener("mouseout", (evnet) => {
-        event.target.style.border = "none";
-      }, false
-      );
-      
-      // item.addEventListener(
-      //   "mouseover",
-      //   (event) => {
-      //     event.target.style.border = "1px solid #FFCA3D";
-      //     event.target.style.transition = "all 0.4s ease-in-out";
-
-      //     title.style.border = "none";
-      //     poster.style.border = "none";
-      //   },
-      //   false
-      // );
-
-      // item.addEventListener(
-      //   "mouseout",
-      //   (event) => {
-      //     event.target.style.border = "none";
-      //   },
-      //   false
-      // );
     });
   })
 
