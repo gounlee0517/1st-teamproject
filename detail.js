@@ -15,10 +15,11 @@ const options = {
   },
 };
 
-fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options)
-  .then((response) => response.json())
+async function fetchData() {
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options);
+    const data = await response.json();
 
-  .then((data) => {
     const titles = data.title;
     const overviews = data.overview;
     const stars = data.vote_average;
@@ -73,9 +74,6 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options)
         genreItem.textContent = genre.name;
         genreList.appendChild(genreItem);
       }
-      // const genreItem = document.createElement("li");
-      // genreItem.textContent = genre.name;
-      // genreList.appendChild(genreItem);
     });
 
     div.appendChild(title);
@@ -87,9 +85,89 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options)
     const container = document.getElementsByClassName("container")[0];
     container.appendChild(img);
     container.appendChild(div);
-  })
 
-  .catch((err) => console.error(err));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+fetchData();
+
+// fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options)
+//   .then((response) => response.json())
+
+//   .then((data) => {
+//     const titles = data.title;
+//     const overviews = data.overview;
+//     const stars = data.vote_average;
+//     const imgs = data.poster_path;
+//     const genres = data.genres;
+//     const dates = data.release_date;
+//     const dateWithSpace = dates.replace(/-/g, " . ");
+
+//     console.log(dateWithSpace);
+
+//     const div = document.createElement("div");
+//     const title = document.createElement("h1");
+//     const text = document.createElement("p");
+//     const img = document.createElement("img");
+//     const star = document.createElement("h4");
+//     const release_date = document.createElement("p");
+
+//     const genreList = document.createElement("ul");
+
+//     function printStars(number) {
+//       if (number < 0 || number > 10) {
+//         console.log("숫자는 0에서 10 사이어야 합니다.");
+//         return;
+//       }
+
+//       let stars = "";
+//       for (let i = 0; i < number / 2 - 1; i++) {
+//         stars += "★";
+//       }
+//       console.log(number);
+//       const decimalPart = number - Math.floor(number);
+//       console.log(decimalPart);
+//       if (decimalPart >= 0.5) {
+//         stars += "☆";
+//       }
+//       return stars;
+//     }
+
+//     console.log(printStars(stars));
+
+//     img.src = `https://image.tmdb.org/t/p/w300${imgs}`;
+//     title.innerHTML = titles;
+//     star.innerHTML = `${printStars(stars)}`;
+//     console.log(typeof stars);
+//     text.innerHTML = overviews;
+//     release_date.innerHTML = dateWithSpace;
+
+//     genres.forEach((genre, index) => {
+//       if (index < 3) {
+//         console.log("valid");
+//         const genreItem = document.createElement("li");
+//         genreItem.textContent = genre.name;
+//         genreList.appendChild(genreItem);
+//       }
+//       // const genreItem = document.createElement("li");
+//       // genreItem.textContent = genre.name;
+//       // genreList.appendChild(genreItem);
+//     });
+
+//     div.appendChild(title);
+//     div.appendChild(release_date);
+//     div.appendChild(star);
+//     div.appendChild(genreList);
+//     div.appendChild(text);
+
+//     const container = document.getElementsByClassName("container")[0];
+//     container.appendChild(img);
+//     container.appendChild(div);
+//   })
+
+//   .catch((err) => console.error(err));
 
 //search toggle
 const searchBtn = document.querySelector(".nav-search");
