@@ -45,9 +45,8 @@ fetch(
       title.classList.add("title");
       poster.classList.add("poster");
 
-      //이미지 링크 111
+      //이미지 링크
       link.href = `detail.html?id=${movie.id}`;
-
     });
   })
 
