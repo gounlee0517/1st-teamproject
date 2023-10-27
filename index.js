@@ -2,20 +2,22 @@
 window.onpageshow = function (event) {
   const card = document.getElementsByClassName('card')
 
-  if (event.persisted || (window.performance && (window.performance.navigation.type == 1 || window.performance.navigation.type == 2))) {
+  if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
     if (('sessionStorage' in window) && window['sessionStorage'] !== null) {
       if (sessionStorage.getItem('DATA')) {
         var a = sessionStorage.getItem('DATA');
         searchInput.value = a;
         captureInput()
       } else {
-          fetchData()
+        fetchData()
       }
     }
   } else if (card.length == 0) {
-      fetchData()
+    fetchData()
+  } else if (window.performance && window.performance.navigation.type == 1) {
+    fetchData()
   }
-} 
+}
 
 const options = {
   method: "GET",
@@ -64,9 +66,6 @@ async function fetchData() {
     console.error("오류 발생:", error);
   }
 }
-
-fetchData();
-
 
 // 검색 validation check
 const searchInput = document.getElementById("inputBox");
@@ -147,9 +146,9 @@ searchInput.addEventListener("keyup", function (event) {
 
 
 // 헤더 스크롤 애니메이션
-document.addEventListener('scroll', onScroll, {passive:true});
+document.addEventListener('scroll', onScroll, { passive: true });
 
-function onScroll () {
+function onScroll() {
   const title = document.querySelector('.title')
   const titleHeight = title.clientHeight;
   const scrollposition = pageYOffset;
