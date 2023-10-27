@@ -46,6 +46,8 @@ async function fetchData() {
   }
 }
 
+fetchData();
+
 //스크롤 이벤트
 document.querySelector(".nav-top").addEventListener("click", function () {
   window.scrollTo(0, 0, window.innerHeight);
