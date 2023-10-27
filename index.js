@@ -9,15 +9,14 @@ window.onpageshow = function (event) {
         searchInput.value = a;
         captureInput()
       } else {
-        topRated()
+          fetchData()
       }
     }
   } else if (card.length == 0) {
-    topRated()
+      fetchData()
   }
-}
+} 
 
-// Top Rated API
 const options = {
   method: "GET",
   headers: {
@@ -27,14 +26,14 @@ const options = {
   },
 };
 
-async function topRated() {
+async function fetchData() {
   try {
     const response = await fetch("https://api.themoviedb.org/3/discover/movie?api_key=0350783f5567adba763f73f89851b1f5&sort_by=popularity.desc", options);
     const data = await response.json();
 
     const results = data.results;
 
-    //영화 카트 붙이기
+    //영화 카트 붙이기//
     results.forEach((movie, index) => {
       const rank = document.createElement("h3");
       const item = document.createElement("div");
@@ -68,57 +67,51 @@ async function topRated() {
 
 fetchData();
 
-results.forEach((movie, index) => {
-  const rank = document.createElement("h3");
-  const item = document.createElement("div");
-  const title = document.createElement("h4");
-  const poster = document.createElement("img");
-  const link = document.createElement("a");
 
-  item.appendChild(rank);
-  item.appendChild(link);
-  item.appendChild(title);
-  link.appendChild(poster);
-
-  poster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-  title.innerHTML = `${movie.title}`;
-  rank.innerHTML = `No.${index + 1}`;
-
-  const container = document.getElementsByClassName("container")[0];
-  container.appendChild(item);
-
-  item.classList.add("card");
-  title.classList.add("title");
-  poster.classList.add("poster");
-
-  link.href = `detail.html?id=${movie.id}`;
-  });
-
-// 검색 validation check
+// 검색 기능
 const searchInput = document.getElementById("inputBox");
 const searchBtn = document.getElementById("searchBtn");
 
 function clearListResults(userInput) {
+  console.log(userInput);
   if (userInput == "") {
     console.log("검색값 없음");
-    alert("영화 제목을 입력해주세요");
   } else {
     const listResults = document.querySelector(".container");
     while (listResults.firstChild) {
       listResults.removeChild(listResults.firstChild);
     }
   }
+
+  // 영화 검색 validation check
+  const mainsearch = document.getElementById("mainsearch");
+
+  console.dir(searchInput);
+  console.log(searchBtn);
+
+  let movietitle = "";
+
+  function getMovieTitle() {
+    movietitle = searchInput.value;
+    console.log(movietitle);
+
+    if (movietitle === "") {
+      alert("영화 제목을 입력해주세요");
+    }
+  }
+  getMovieTitle();
 }
 
-// Search API
 function captureInput() {
   userInput = searchInput.value;
   sessionStorage.setItem('DATA', userInput)
+
 
   const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=0350783f5567adba763f73f89851b1f5&query=${userInput}`;
   const listResults = document.querySelector(".container"); // 선택한 목록 요소
   clearListResults(userInput);
 
+  // Make an API request
   fetch(searchUrl)
     .then((response) => {
       if (!response.ok) {
@@ -130,6 +123,7 @@ function captureInput() {
       const movies = data.results;
       if (movies.length > 0) {
         movies.forEach((movie) => {
+          // 각 영화에 대한 html li 요소 생성하기
           const item = document.createElement("div");
           const title = document.createElement("h4");
           const poster = document.createElement("img");
@@ -143,9 +137,10 @@ function captureInput() {
           item.appendChild(title);
           link.appendChild(poster);
 
+          //이미지 링크
           link.href = `detail.html?id=${movie.id}`;
 
-          listResults.appendChild(item);
+          listResults.appendChild(item); // li 요소를 목록에 추가
         });
       } else {
         console.log("No movies found.");
@@ -155,7 +150,7 @@ function captureInput() {
       console.error("There was a problem with the fetch operation:", error);
     });
 }
-// Search
+
 searchBtn.addEventListener("click", captureInput);
 searchInput.addEventListener("keyup", function (event) {
   if (event.key === "Enter") {
@@ -164,12 +159,14 @@ searchInput.addEventListener("keyup", function (event) {
 });
 
 
+//검색 결과를 뒤로가기 해도 보이게
 
 
-// navBar animation
-document.addEventListener('scroll', onScroll, { passive: true });
 
-function onScroll() {
+// 헤더 스크롤 애니메이션
+document.addEventListener('scroll', onScroll, {passive:true});
+
+function onScroll () {
   const title = document.querySelector('.title')
   const titleHeight = title.clientHeight;
   const scrollposition = pageYOffset;
@@ -183,9 +180,10 @@ function onScroll() {
     nav.style.backgroundColor = '#00000000'
     navText.style.color = '#FFCA3D'
   };
-};
+}
 
-// Scroll event
+
+//스크롤 이벤트
 document.querySelector(".nav-top").addEventListener("click", function () {
   window.scrollTo(0, 0, window.innerHeight);
 });
@@ -198,3 +196,5 @@ document.querySelector(".nav-movielist").addEventListener("click", function () {
 document.querySelector(".footer-main").addEventListener("click", function () {
   window.scrollTo(0, 0, window.innerHeight);
 });
+
+
