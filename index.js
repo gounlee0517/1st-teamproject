@@ -1,4 +1,4 @@
-// SessionStorage
+// SessionStorage//
 window.onpageshow = function (event) {
   const card = document.getElementsByClassName('card')
 
@@ -68,7 +68,7 @@ async function fetchData() {
 fetchData();
 
 
-// 검색 기능
+// 검색 validation check
 const searchInput = document.getElementById("inputBox");
 const searchBtn = document.getElementById("searchBtn");
 
@@ -76,30 +76,13 @@ function clearListResults(userInput) {
   console.log(userInput);
   if (userInput == "") {
     console.log("검색값 없음");
+    alert("영화 제목을 입력해주세요");
   } else {
     const listResults = document.querySelector(".container");
     while (listResults.firstChild) {
       listResults.removeChild(listResults.firstChild);
     }
   }
-
-  // 영화 검색 validation check
-  const mainsearch = document.getElementById("mainsearch");
-
-  console.dir(searchInput);
-  console.log(searchBtn);
-
-  let movietitle = "";
-
-  function getMovieTitle() {
-    movietitle = searchInput.value;
-    console.log(movietitle);
-
-    if (movietitle === "") {
-      alert("영화 제목을 입력해주세요");
-    }
-  }
-  getMovieTitle();
 }
 
 function captureInput() {
