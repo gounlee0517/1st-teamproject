@@ -110,8 +110,7 @@ header>h1 {
 
 .container>div>h4 {
   width: 270px;
-  font-family: "nanum godic";
-  font-weight: lighter;
+  font-family: "helvetica neue";
   font-size: 25px;
   color: white;
 
@@ -121,7 +120,7 @@ header>h1 {
 
 .container>div:hover>h4 {
   opacity: 1;
-  transform: translateY(-30vh);
+  transform: translateY(-55%);
   transition: all 0.3s ease-in-out;
 }
 

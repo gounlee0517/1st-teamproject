@@ -35,7 +35,7 @@ async function fetchData() {
     const text = document.createElement("p");
     const img = document.createElement("img");
     const star = document.createElement("h4");
-    const release_date = document.createElement("p");
+    const release_date = document.createElement("h3");
 
     const genreList = document.createElement("ul");
 
