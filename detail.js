@@ -79,8 +79,8 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options)
     });
 
     div.appendChild(title);
-    div.appendChild(star);
     div.appendChild(release_date);
+    div.appendChild(star);
     div.appendChild(genreList);
     div.appendChild(text);
 
