@@ -15,10 +15,11 @@ const options = {
   },
 };
 
-fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options)
-  .then((response) => response.json())
+async function fetchData() {
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options);
+    const data = await response.json();
 
-  .then((data) => {
     const titles = data.title;
     const overviews = data.overview;
     const stars = data.vote_average;
@@ -73,23 +74,24 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options)
         genreItem.textContent = genre.name;
         genreList.appendChild(genreItem);
       }
-      // const genreItem = document.createElement("li");
-      // genreItem.textContent = genre.name;
-      // genreList.appendChild(genreItem);
     });
 
     div.appendChild(title);
-    div.appendChild(star);
     div.appendChild(release_date);
+    div.appendChild(star);
     div.appendChild(genreList);
     div.appendChild(text);
 
     const container = document.getElementsByClassName("container")[0];
     container.appendChild(img);
     container.appendChild(div);
-  })
 
-  .catch((err) => console.error(err));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+fetchData();
 
 //search toggle
 const searchBtn = document.querySelector(".nav-search");

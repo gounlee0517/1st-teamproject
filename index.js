@@ -18,28 +18,55 @@ window.onpageshow = function (event) {
 } 
 
 // Top Rated API
-function topRated() {
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OTc5NDcwYzIyM2U2NWU4MzUwOTZmNjRlNzA0MTQwZiIsInN1YiI6IjY1MmYzNzRhMGNiMzM1MTZmZWM5Y2U0ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SRyc6umjQRslcbrDGmgDP1YkorROAWFTKq0TBmGnrsg",
-    },
-  };
+const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OTc5NDcwYzIyM2U2NWU4MzUwOTZmNjRlNzA0MTQwZiIsInN1YiI6IjY1MmYzNzRhMGNiMzM1MTZmZWM5Y2U0ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SRyc6umjQRslcbrDGmgDP1YkorROAWFTKq0TBmGnrsg",
+  },
+};
 
-  fetch(
-    "https://api.themoviedb.org/3/discover/movie?api_key=0350783f5567adba763f73f89851b1f5&sort_by=popularity.desc",
-    options
-  )
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("네트워크 오류");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      const results = data.results;
+async function topRated() {
+  try {
+    const response = await fetch("https://api.themoviedb.org/3/discover/movie?api_key=0350783f5567adba763f73f89851b1f5&sort_by=popularity.desc", options);
+    const data = await response.json();
+
+    const results = data.results;
+
+    //영화 카트 붙이기
+    results.forEach((movie, index) => {
+      const rank = document.createElement("h3");
+      const item = document.createElement("div");
+      const title = document.createElement("h4");
+      const poster = document.createElement("img");
+      const link = document.createElement("a");
+
+      item.appendChild(rank);
+      item.appendChild(link);
+      item.appendChild(title);
+      link.appendChild(poster);
+
+      poster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+      title.innerHTML = `${movie.title}`;
+      rank.innerHTML = `No.${index + 1}`;
+
+      const container = document.getElementsByClassName("container")[0];
+      container.appendChild(item);
+
+      item.classList.add("card");
+      title.classList.add("title");
+      poster.classList.add("poster");
+
+      //이미지 링크
+      link.href = `detail.html?id=${movie.id}`;
+    });
+  } catch (error) {
+    console.error("오류 발생:", error);
+  }
+}
+
+fetchData();
 
       results.forEach((movie, index) => {
         const rank = document.createElement("h3");
