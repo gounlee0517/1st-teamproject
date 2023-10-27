@@ -15,7 +15,7 @@ window.onpageshow = function (event) {
   } else if (card.length == 0) {
     topRated()
   }
-} 
+}
 
 // Top Rated API
 const options = {
@@ -68,37 +68,31 @@ async function topRated() {
 
 fetchData();
 
-      results.forEach((movie, index) => {
-        const rank = document.createElement("h3");
-        const item = document.createElement("div");
-        const title = document.createElement("h4");
-        const poster = document.createElement("img");
-        const link = document.createElement("a");
+results.forEach((movie, index) => {
+  const rank = document.createElement("h3");
+  const item = document.createElement("div");
+  const title = document.createElement("h4");
+  const poster = document.createElement("img");
+  const link = document.createElement("a");
 
-        item.appendChild(rank);
-        item.appendChild(link);
-        item.appendChild(title);
-        link.appendChild(poster);
+  item.appendChild(rank);
+  item.appendChild(link);
+  item.appendChild(title);
+  link.appendChild(poster);
 
-        poster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-        title.innerHTML = `${movie.title}`;
-        rank.innerHTML = `No.${index + 1}`;
+  poster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+  title.innerHTML = `${movie.title}`;
+  rank.innerHTML = `No.${index + 1}`;
 
-        const container = document.getElementsByClassName("container")[0];
-        container.appendChild(item);
+  const container = document.getElementsByClassName("container")[0];
+  container.appendChild(item);
 
-        item.classList.add("card");
-        title.classList.add("title");
-        poster.classList.add("poster");
+  item.classList.add("card");
+  title.classList.add("title");
+  poster.classList.add("poster");
 
-        link.href = `detail.html?id=${movie.id}`;
-      });
-    })
-    .catch((error) => {
-      console.error("오류 발생:", error);
-    });
-
-}
+  link.href = `detail.html?id=${movie.id}`;
+  });
 
 // 검색 validation check
 const searchInput = document.getElementById("inputBox");
