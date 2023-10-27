@@ -1,3 +1,22 @@
+// SessionStorage//
+window.onpageshow = function (event) {
+  const card = document.getElementsByClassName('card')
+
+  if (event.persisted || (window.performance && (window.performance.navigation.type == 1 || window.performance.navigation.type == 2))) {
+    if (('sessionStorage' in window) && window['sessionStorage'] !== null) {
+      if (sessionStorage.getItem('DATA')) {
+        var a = sessionStorage.getItem('DATA');
+        searchInput.value = a;
+        captureInput()
+      } else {
+          fetchData()
+      }
+    }
+  } else if (card.length == 0) {
+      fetchData()
+  }
+} 
+
 const options = {
   method: "GET",
   headers: {
@@ -14,7 +33,7 @@ async function fetchData() {
 
     const results = data.results;
 
-    //영화 카트 붙이기
+    //영화 카트 붙이기//
     results.forEach((movie, index) => {
       const rank = document.createElement("h3");
       const item = document.createElement("div");
@@ -48,24 +67,8 @@ async function fetchData() {
 
 fetchData();
 
-//스크롤 이벤트
-document.querySelector(".nav-top").addEventListener("click", function () {
-  window.scrollTo(0, 0, window.innerHeight);
-});
 
-document.querySelector(".nav-search").addEventListener("click", function () {
-  window.scrollTo(0, 800, window.innerHeight);
-});
-
-document.querySelector(".nav-movielist").addEventListener("click", function () {
-  window.scrollTo(0, 1190, window.innerHeight);
-});
-
-document.querySelector(".footer-main").addEventListener("click", function () {
-  window.scrollTo(0, 0, window.innerHeight);
-});
-
-// 검색 기능
+// 검색 validation check
 const searchInput = document.getElementById("inputBox");
 const searchBtn = document.getElementById("searchBtn");
 
@@ -73,34 +76,19 @@ function clearListResults(userInput) {
   console.log(userInput);
   if (userInput == "") {
     console.log("검색값 없음");
+    alert("영화 제목을 입력해주세요");
   } else {
     const listResults = document.querySelector(".container");
     while (listResults.firstChild) {
       listResults.removeChild(listResults.firstChild);
     }
   }
-
-  // 영화 검색 validation check
-  const mainsearch = document.getElementById("mainsearch");
-
-  console.dir(searchInput);
-  console.log(searchBtn);
-
-  let movietitle = "";
-
-  function getMovieTitle() {
-    movietitle = searchInput.value;
-    console.log(movietitle);
-
-    if (movietitle === "") {
-      alert("영화 제목을 입력해주세요");
-    }
-  }
-  getMovieTitle();
 }
 
 function captureInput() {
   userInput = searchInput.value;
+  sessionStorage.setItem('DATA', userInput)
+
 
   const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=0350783f5567adba763f73f89851b1f5&query=${userInput}`;
   const listResults = document.querySelector(".container"); // 선택한 목록 요소
@@ -174,6 +162,22 @@ function onScroll () {
   } else {
     nav.style.backgroundColor = '#00000000'
     navText.style.color = '#FFCA3D'
-
   };
 }
+
+
+//스크롤 이벤트
+document.querySelector(".nav-top").addEventListener("click", function () {
+  window.scrollTo(0, 0, window.innerHeight);
+});
+document.querySelector(".nav-search").addEventListener("click", function () {
+  window.scrollTo(0, 800, window.innerHeight);
+});
+document.querySelector(".nav-movielist").addEventListener("click", function () {
+  window.scrollTo(0, 1190, window.innerHeight);
+});
+document.querySelector(".footer-main").addEventListener("click", function () {
+  window.scrollTo(0, 0, window.innerHeight);
+});
+
+
