@@ -121,7 +121,7 @@ header>h1 {
 
 .container>div:hover>h4 {
   opacity: 1;
-  transform: translateY(-30vh);
+  /* transform: translateY(-30vh); */
   transition: all 0.3s ease-in-out;
 }
 
