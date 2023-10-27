@@ -46,53 +46,6 @@ async function fetchData() {
   }
 }
 
-// fetch(
-//   "https://api.themoviedb.org/3/discover/movie?api_key=0350783f5567adba763f73f89851b1f5&sort_by=popularity.desc",
-//   options
-// )
-//   .then((response) => {
-//     if (!response.ok) {
-//       throw new Error("네트워크 오류");
-//     }
-//     return response.json(); // JSON 데이터 가져오기
-//   })
-//   //영화 리스트
-//   .then((data) => {
-//     const results = data.results;
-
-//     //영화 카트 붙이기
-//     results.forEach((movie, index) => {
-//       const rank = document.createElement("h3");
-//       const item = document.createElement("div");
-//       const title = document.createElement("h4");
-//       const poster = document.createElement("img");
-//       const link = document.createElement("a");
-
-//       item.appendChild(rank);
-//       item.appendChild(link);
-//       item.appendChild(title);
-//       link.appendChild(poster);
-
-//       poster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-//       title.innerHTML = `${movie.title}`;
-//       rank.innerHTML = `No.${index + 1}`;
-
-//       const container = document.getElementsByClassName("container")[0];
-//       container.appendChild(item);
-
-//       item.classList.add("card");
-//       title.classList.add("title");
-//       poster.classList.add("poster");
-
-//       //이미지 링크
-//       link.href = `detail.html?id=${movie.id}`;
-//     });
-//   })
-
-//   .catch((error) => {
-//     console.error("오류 발생:", error);
-//   });
-
 //스크롤 이벤트
 document.querySelector(".nav-top").addEventListener("click", function () {
   window.scrollTo(0, 0, window.innerHeight);
