@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="./index.css" rel="stylesheet" />
-  <title>멘탈 Java(Script)조 영화 검색 사이트</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./index.css" rel="stylesheet" />
+    <title>멘탈 Java(Script)조 영화 검색 사이트</title>
+  </head>
 
   <body>
     <nav class="navbar-list navbar">
@@ -17,37 +17,34 @@
     </nav>
 
     <header>
-      <h1 class="title"> 
+      <h1 class="title">
         top <br />
         rated <br />
         movies
       </h1>
     </header>
 
-  <main>
-    <div class="input">
-      <div class="width">
-        <input type="search" id="inputBox" required />
-        <label id="search_input">type your keyword</label>
-        <span id="inputBar"></span>
-        <button id="searchBtn">search</button>
+    <main>
+      <div class="input">
+        <div class="width">
+          <input type="search" id="inputBox" required />
+          <label id="search_input">type your keyword</label>
+          <span id="inputBar"></span>
+          <button id="searchBtn">search</button>
+        </div>
       </div>
-    </div>
 
+      <section>
+        <h2 class="main-list">TOP 20 MOVIE</h2>
+        <div class="container"></div>
+      </section>
+    </main>
 
-    <section>
-      <h2 class="main-list">TOP 20 MOVIE</h2>
-      <div class="container">
-      </div>
-    </section>
-  </main>
+    <footer>
+      <h2 class="footer-main">top rated movie</h2>
+      <p>NBCcamp React_3기 A-9조</p>
+    </footer>
 
-  <footer>
-    <h2 class="footer-main">top rated movie</h2>
-    <p>NBCcamp React_3기 A08조</p>
-  </footer>
-
-  <script src="./index.js"></script>
-</body>
-
+    <script src="./index.js"></script>
+  </body>
 </html>

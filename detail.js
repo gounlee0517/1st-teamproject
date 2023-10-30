@@ -17,7 +17,10 @@ const options = {
 
 async function fetchData() {
   try {
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-U`, options);
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}?language=en-U`,
+      options
+    );
     const data = await response.json();
 
     const titles = data.title;
@@ -85,7 +88,6 @@ async function fetchData() {
     const container = document.getElementsByClassName("container")[0];
     container.appendChild(img);
     container.appendChild(div);
-
   } catch (error) {
     console.log(error);
   }
@@ -128,6 +130,9 @@ submitButton.addEventListener("click", function () {
   const id = idInput.value;
   const password = passwordInput.value;
   const review = reviewInput.value;
+  const reviewId = url.split("id=")[1];
+
+  console.log(reviewId);
 
   if (!id || !password || !review) {
     alert("Please fill in all fields");
@@ -137,7 +142,10 @@ submitButton.addEventListener("click", function () {
     return;
   }
 
-  const userObject = { password: password, review: review };
+  const userObject = {
+    id: id,
+    reviewData: { reviewId: reviewId, password: password, review: review },
+  };
   localStorage.setItem(id, JSON.stringify(userObject));
 
   console.log(id, password, review);
@@ -147,13 +155,11 @@ submitButton.addEventListener("click", function () {
   reviewInput.value = "";
 });
 
-console.log(localStorage.length);
-
 for (let i = 0; i < localStorage.length; i++) {
   const id = localStorage.key(i);
   const storedData = JSON.parse(localStorage.getItem(id));
-
-  if (id && storedData && storedData.review) {
+  if (storedData.reviewData.reviewId === movieId) {
+    console.log("Yeahhhh");
     const listItem = document.createElement("li");
     listItem.innerHTML = `🧑 ${id} <br><br> <span>${storedData.review}</span>`;
     reviewsList.appendChild(listItem);
