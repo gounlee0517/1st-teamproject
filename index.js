@@ -65,7 +65,7 @@ async function fetchData() {
   }
 }
 
-fetchData();
+// fetchData();
 
 
 // 검색 validation check
