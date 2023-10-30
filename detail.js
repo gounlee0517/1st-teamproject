@@ -38,7 +38,7 @@ async function fetchData() {
     const text = document.createElement("p");
     const img = document.createElement("img");
     const star = document.createElement("h4");
-    const release_date = document.createElement("p");
+    const release_date = document.createElement("h3");
 
     const genreList = document.createElement("ul");
 
@@ -161,7 +161,7 @@ for (let i = 0; i < localStorage.length; i++) {
   if (storedData.reviewData.reviewId === movieId) {
     console.log("Yeahhhh");
     const listItem = document.createElement("li");
-    listItem.innerHTML = `ID: ${id} <br><br> ${storedData.reviewData.review}`;
+    listItem.innerHTML = `🧑 ${id} <br><br> <span>${storedData.review}</span>`;
     reviewsList.appendChild(listItem);
   } else {
     console.log("why not working");

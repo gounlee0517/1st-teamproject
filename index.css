@@ -25,10 +25,8 @@ h4 {
   align-items: center;
   text-align: center;
 
-
   position: sticky;
   top: 0;
-  padding: 5px 10px;
 
   transition: 1s;
 }
@@ -36,6 +34,7 @@ h4 {
 .navbar-menu {
   list-style: none;
   display: flex;
+  padding: 5px 10px;
 
   text-decoration: none;
   color: #ffca3d;
@@ -110,8 +109,7 @@ header>h1 {
 
 .container>div>h4 {
   width: 270px;
-  font-family: "nanum godic";
-  font-weight: lighter;
+  font-family: "helvetica neue";
   font-size: 25px;
   color: white;
 
@@ -121,7 +119,7 @@ header>h1 {
 
 .container>div:hover>h4 {
   opacity: 1;
-  /* transform: translateY(-30vh); */
+  transform: translateY(-55%);
   transition: all 0.3s ease-in-out;
 }
 
