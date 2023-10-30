@@ -310,3 +310,7 @@ input:valid~#inputBar {
   color: #999487;
   border: 1px solid #ffca3d;
 }
+
+.reviews>li>span {
+  color: white;
+}

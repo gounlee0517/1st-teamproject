@@ -155,7 +155,7 @@ for (let i = 0; i < localStorage.length; i++) {
 
   if (id && storedData && storedData.review) {
     const listItem = document.createElement("li");
-    listItem.innerHTML = `ID: ${id} <br><br> ${storedData.review}`;
+    listItem.innerHTML = `🧑 ${id} <br><br> <span>${storedData.review}</span>`;
     reviewsList.appendChild(listItem);
   } else {
     console.log("why not working");
