@@ -1,10 +1,6 @@
 // 현재 페이지 URL 가져오기
 const url = window.location.href;
-console.log(url);
-console.log(typeof url);
-
 const movieId = url.split("id=")[1];
-console.log(movieId);
 
 const options = {
   method: "GET",
@@ -31,8 +27,6 @@ async function fetchData() {
     const dates = data.release_date;
     const dateWithSpace = dates.replace(/-/g, " . ");
 
-    console.log(dateWithSpace);
-
     const div = document.createElement("div");
     const title = document.createElement("h1");
     const text = document.createElement("p");
@@ -52,27 +46,21 @@ async function fetchData() {
       for (let i = 0; i < number / 2 - 1; i++) {
         stars += "★";
       }
-      console.log(number);
       const decimalPart = number - Math.floor(number);
-      console.log(decimalPart);
       if (decimalPart >= 0.5) {
         stars += "☆";
       }
       return stars;
     }
 
-    console.log(printStars(stars));
-
     img.src = `https://image.tmdb.org/t/p/w300${imgs}`;
     title.innerHTML = titles;
     star.innerHTML = `${printStars(stars)}`;
-    console.log(typeof stars);
     text.innerHTML = overviews;
     release_date.innerHTML = dateWithSpace;
 
     genres.forEach((genre, index) => {
       if (index < 3) {
-        console.log("valid");
         const genreItem = document.createElement("li");
         genreItem.textContent = genre.name;
         genreList.appendChild(genreItem);
@@ -132,8 +120,6 @@ submitButton.addEventListener("click", function () {
   const review = reviewInput.value;
   const reviewId = url.split("id=")[1];
 
-  console.log(reviewId);
-
   if (!id || !password || !review) {
     alert("Please fill in all fields");
     return;
@@ -148,8 +134,6 @@ submitButton.addEventListener("click", function () {
   };
   localStorage.setItem(id, JSON.stringify(userObject));
 
-  console.log(id, password, review);
-
   idInput.value = "";
   passwordInput.value = "";
   reviewInput.value = "";
@@ -159,9 +143,8 @@ for (let i = 0; i < localStorage.length; i++) {
   const id = localStorage.key(i);
   const storedData = JSON.parse(localStorage.getItem(id));
   if (storedData.reviewData.reviewId === movieId) {
-    console.log("Yeahhhh");
     const listItem = document.createElement("li");
-    listItem.innerHTML = `🧑 ${id} <br><br> <span>${storedData.review}</span>`;
+    listItem.innerHTML = `🧑 ${id} <br><br> <span>${storedData.reviewData.review}</span>`;
     reviewsList.appendChild(listItem);
   } else {
     console.log("why not working");
