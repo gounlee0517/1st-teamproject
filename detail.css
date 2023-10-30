@@ -31,6 +31,7 @@ p {
 .navbar-menu {
   list-style: none;
   display: flex;
+  padding: 5px 10px;
 
   text-decoration: none;
   font-size: 18px;
